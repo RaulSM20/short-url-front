@@ -59,9 +59,11 @@
 @layer base {
   * {
     @apply border-border;
+    font-family: "Rubik", sans-serif;
   }
   body {
     @apply bg-background text-foreground;
-    color: white;
+    color: rgb(223, 221, 221);
+    background-color: rgb(10,10,10);
   }
 }

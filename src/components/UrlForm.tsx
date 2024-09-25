@@ -5,10 +5,8 @@ import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
-  FormLabel,
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
@@ -57,19 +55,16 @@ export const UrlForm = () => {
   return (
     <>
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
           <FormField
             control={form.control}
             name="url"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Enter URL</FormLabel>
                 <FormControl>
-                  <Input placeholder="shadcn" {...field} />
+                  <Input placeholder="Enter URL here..." {...field} />
                 </FormControl>
-                <FormDescription>
-                  This is your public display name.
-                </FormDescription>
+
                 <FormMessage />
               </FormItem>
             )}
@@ -77,7 +72,13 @@ export const UrlForm = () => {
           <Button type="submit">Submit</Button>
         </form>
       </Form>
-      <span className="text-xl">/{url}</span>
+      {url ? (
+        <span className="text-xl">
+          Your shorted URL: http://localhost:5173/{url}
+        </span>
+      ) : (
+        ""
+      )}
     </>
   );
 };

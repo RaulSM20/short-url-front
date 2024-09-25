@@ -1,3 +1,4 @@
+import { Spinner } from "@/components/spinner";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
@@ -33,5 +34,17 @@ export const ShortUrlPage = () => {
       });
   }, [urlApi]);
 
-  return <>{isLoading ? "Loading..." : "Redirecting..."}</>;
+  return (
+    <>
+      {isLoading ? (
+        <div>
+          <Spinner />
+        </div>
+      ) : (
+        <div className="mx-auto my-48">
+          <Spinner />
+        </div>
+      )}
+    </>
+  );
 };
